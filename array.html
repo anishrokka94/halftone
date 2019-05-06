@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Array </title>
+</head>
+<body>
+
+  <!-- <input type="number" id="nosOfStudents" placeholder="Enter no of students"> -->
+  <button> Add </button>
+  <script>
+
+    class Students {
+      constructor(name, marks) {
+        this.name = name;
+        this.marks = marks;
+      }
+    }
+
+    var Student1 = new Students("Anish", 20);
+    var Student2 = new Students("Supreet", 40);
+
+    //adding all students to array
+    var allStudents = [Student1, Student2];
+
+    // add students after click
+    document.querySelector('button').addEventListener("click", function(){
+      var nameOfStudent = prompt("Enter name");
+      var marksOfStudent = prompt("Enter marks");
+
+      var newStudent = new Students(nameOfStudent, marksOfStudent);
+      allStudents.push(newStudent);
+        
+    });
+
+    // filtering who got more than 33 
+    var passStudents = allStudents.filter(function(value) {
+      return value.marks > 33; 
+    })
+
+    console.log(passStudents);
+    // var allStudent = [];
+
+    //get the no of students
+    //loop through every student
+    //Ask for name and marks for each student
+    //Add all students into an array
+
+
+    //Ask for passing marks
+    //If the stdent passed then show result
+
+    // document.querySelector('button').onclick = function(){
+    //   var valOfStudent = document.querySelector('input').value
+    //   console.log(valOfStudent)
+    // }
+
+    // var nosOfStudents = parseInt(prompt("Enter number of students"));
+
+    // for(var i = 0; i < nosOfStudents; i++){
+    //   var studentName = prompt("Enter your name");
+    //   var studentMarks = prompt("Enter your marks");
+
+    //   var student3 = new Students(studentName, studentMarks);
+    //   allStudents.push(student3);
+  
+    // }
+    
+
+    // show only even numbers from an array 
+
+    // make an array 
+
+    var allNumbers = [];
+
+    for(var i=1; i<=100; i++) {
+
+    // filter even number from array 
+      if(i%2 === 0) {
+        // push filtered item 
+        allNumbers.push(i)
+      }
+    }
+
+    
+
+
+
+  </script>
+</body>
+</html>

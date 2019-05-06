@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Objects </title>
+</head>
+<body>
+
+  <script>
+    var obj1 = {
+      name: 'Anish',
+      surname: 'rokka'
+    }
+
+    var obj2 = {
+      name: 'john',
+      age: 23,
+      lastName: 'Doe',
+      fullName: function() {
+        return this.name + ' ' + this.lastName;
+      }
+    }
+
+    //manipulating an object 
+    var parsedFullObject = {
+      // ... is rest spread operator
+      // It breaks down an object 
+      ...obj2,
+      fullName: obj2.fullName()
+    }
+
+    //converting object to string 
+    var objToString = JSON.parse(obj1);
+
+    var someTextObject =  '{"name": "shyam", "lastName": "Smith"}';
+
+    //parsing text to object
+    var parsedFromString = JSON.parse(someTextObject);
+
+    //putting objects in an array
+    var objs = [obj1,obj2];
+
+
+
+
+    // merging two object
+      // first Method
+    var productInfo = {
+      title: "hand bag",
+      description: "custom designed luxury handbag",
+      brand: "GUCCI"
+    };
+
+    var productManInfo = {
+      manufacturedBY: "china",
+      itemsUsed: ["leather", "cloth", "Metals"],
+      manufacturedYear: 2018
+    };
+
+    // Using rest spread operator 
+    var fullProductDescription = {
+      ...productInfo,
+      ...productManInfo,
+
+      //can be edit or add new property in object like this: 
+      price: 1000,
+
+    }
+
+    console.log(fullProductDescription);
+
+    // second method 
+    // using object assign 
+
+    var newObject = Object.assign(productInfo, productManInfo);
+    console.log(newObject);
+
+
+     // destructuring object
+       // accessing title and brand and setting to variable 
+     let {title, brand} = productInfo;
+
+      // accessing merged object properties and setting to variable 
+      let {title, brand, manufacturedYear} = newObject;
+
+    
+      // entries convert object to array 
+        // sets objects properties to array 
+        Object.entries(newObject);
+
+        /* eg: 
+          var obj3 = {
+            greet: 'hi',
+            country: 'US'
+          }
+
+          After object entries 
+          Object.entries(obj3);
+
+          Answer: [["greet", "hi"], ["country", "US"]]
+
+        */
+
+        // filtering only title and brand from an array 
+
+        // filter checks condition for true or false 
+        newObject.filter(function(value) {
+          if(value[0] === "title" || value[0] === "brand") {
+            return true;
+          } else {
+            return false;
+          }
+        });
+  </script>
+  
+</body>
+</html>
